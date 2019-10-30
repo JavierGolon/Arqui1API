@@ -7,3 +7,5 @@ const data = require('./Data.json');
  router.get('/GetData',function(req,res,next){
     res.json(data);
  });
+
+ module.exports = router;
