@@ -5,7 +5,17 @@ const data = require('./Data.json');
  // metodo get
 
  router.get('/GetData',function(req,res,next){
-    res.json(data);
+   if(data.length==0){
+      const msg ={
+         "Tipo":"Cola Vacia",
+         "Contenido":"Empty"
+      }
+      res.status(200).json(msg);
+   }else{
+      const popfirst = data[0];
+      res.status(200).json(popfirst);
+      data.shift();
+   } 
  });
 
  // metodo Post
